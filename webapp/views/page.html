@@ -1,0 +1,87 @@
+
+<div class="content-outer" data-ng-controller="PageController"
+	data-ng-init="getPageArticles()">
+	<div id="page-content" class="row">
+		<div id="primary" class="eight columns">
+			<article class="post" data-ng-repeat="article in articles">
+				<div class="entry-header cf">
+					<h1>
+						<a href="#!/blog/{{article.NavName}}">{{article.Title}}</a>
+					</h1>
+					<time class="date" datetime="2014-01-14T11:24">{{article.CreateTime}}</time>
+				</div>
+
+				<div class="post-thumb">
+					<a href="#!/blog/{{article.NavName}}" title=""><img
+						ng-src="{{article.CoverPhoto}}"></a>
+				</div>
+
+				<div class="post-content">
+					<p>{{article.Intro}}</p>
+				</div>
+			</article>
+			<!-- post end -->
+
+			<nav class="col full pagination">
+				<ul>
+					<li><a ng-href="#!/page/1" class="page-numbers prev">First</a></li>
+					<li ng-show="{{currPage - 1 >= 1}}"><a
+						ng-href="#!/page/{{currPage-1}}" class="page-numbers prev">Prev</a></li>
+					<li ng-show="{{currPage - 2 >= 1}}"><a
+						ng-href="#!/page/{{currPage-2}}" class="page-numbers">{{currPage
+							- 2}}</a></li>
+					<li ng-show="{{currPage - 1 >= 1}}"><a
+						ng-href="#!/page/{{currPage-1}}" class="page-numbers">{{currPage
+							- 1}}</a></li>
+					<li><span class="page-numbers current">{{currPage}}</span></li>
+					<li ng-hide="totalPageNumber - currPage < 1"><a
+						ng-href="#!/page/{{currPage+1}}" class="page-numbers">{{currPage
+							+ 1}}</a></li>
+					<li ng-hide="totalPageNumber - currPage < 2"><a
+						ng-href="#!/page/{{currPage+2}}" class="page-numbers">{{currPage
+							+ 2}}</a></li>
+					<li ng-hide="totalPageNumber - currPage < 1"><a
+						ng-href="#!/page/{{currPage+1}}" class="page-numbers next">Next</a></li>
+					<li><a ng-href="#!/page/{{totalPageNumber}}"
+						class="page-numbers next">Last</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div id="secondary" class="four columns end">
+			<aside id="sidebar">
+				<div class="row">
+					<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full"
+						ng-repeat="deal in deals">
+						<div class="columns portfolio-item">
+							<div class="item-wrap">
+								<a href="#!/deal/{{deal.NavName}}"> <img
+									alt="{{deal.EnName}}" ng-src="{{deal.CoverPhoto}}">
+									<div class="overlay"></div>
+									<div class="link-icon">
+										<i class="fa fa-link"></i>
+									</div>
+								</a>
+								<div class="portfolio-item-meta">
+									<h5>
+										<a href="#!/deal/{{deal.NavName}}">{{deal.EnName}}</a>
+									</h5>
+									<p><strike>${{deal.Price + deal.Discount}}</strike>   ${{deal.Price}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full">
+						<div class="columns portfolio-item">
+							<div class="item-wrap">
+<!-- featen_right_middle -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-2004843599964911"
+     data-ad-slot="7567641750"></ins> </div></div></div>
+				</div>
+			</aside>
+		</div>
+		<!-- Secondary End-->
+	</div>
+</div>

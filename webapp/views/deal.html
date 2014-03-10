@@ -1,0 +1,53 @@
+
+<div data-ng-controller="DealsController" data-ng-init="load()">
+
+	<div class="content-outer" style="max-height: 700px; mix-height: 500px;">
+		<div id="page-content" class="row">
+			<div id="primary" class="eight columns">
+				<div id="intro-slider" class="flexslider">
+					<ul class="slides">
+						<li data-ng-repeat="p in photos">
+							<div class="slider-image">
+								<img class="img-responsive" draggable="false" ng-src="{{p}}"
+									style="max-height: 500px; width: 100%;" />
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div id="secondary" class="four columns end">
+				<div id="contact-form" class="row" style="padding:10px;">
+					<h4>{{deal.EnName}}</h4>
+					<br>
+                    <ul>
+                            <li><b><del>Listing Price: ${{deal.Price + deal.Discount}} </del></b></li>
+                            <li><h3>Now:    <span style="color: red">${{deal.Price}}</span></h3></li>
+                        
+							<li>
+							<a class="button" target="_blank" data-ng-hide="data.taobaourl.length==0" href="{{data.taobaourl}}">淘宝</a>
+							<a class="button" target="_blank" data-ng-hide="data.ebayurl.length==0" href="{{data.ebayurl}}">ebay</a>
+							<button type="button" data-ng-click="reviewlater()">+ Reviewboard</button>
+							</li>
+                    </ul>
+								
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="works">
+		<div class="row">
+			<div class="eight columns">
+				<h2>Product Info</h2>
+				<div id="introduction"></div>
+			</div>
+			<div class="four columns">
+				<h2>Specs</h2>
+				<div id="specs"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

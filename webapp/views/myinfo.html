@@ -1,0 +1,54 @@
+<div  data-ng-controller="UsersCtrl"
+	data-ng-init="getProfile()">
+
+    <div id="page-title">
+        <div class="row">
+            <div class="ten columns centered text-center">
+                <h1>
+                    Update Information<span>.</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="content-outer">
+	<div id="page-content" class="row page">
+		<div id="primary" class="eight columns">
+            <div id="contact-form">
+                <form name="form" novalidate>
+                    <fieldset>
+                        <legend>Update Customer Informtion</legend>
+                        <div>
+                        	<label for="fileToUpload">Photo</label>
+                        	<input type="file" data-ng-model-instant id="fileToUpload" onchange="angular.element(this).scope().setFiles(this)" >
+            				<button type="button" class="btn" data-ng-click="uploadCoverPhoto()">Upload</button>
+                        </div>
+                        
+                        <div>
+                            <label for="inputName">Name</label>
+                            <input type="text"  id="inputName" name="inputName" data-ng-model="data.nickname" required />
+                        </div>
+
+                        <div>
+                            <label for="inputPhone">Phone</label>
+                            <input type="text"  id="inputPhone" name="inputPhone" data-ng-model="data.phone" required />
+                        </div>
+
+                        <div >
+                                <button type="submit" class="btn btn-info" data-ng-disabled="form.$invalid" data-ng-click="updateinfo()">Save</button>
+                        </div>
+                    </fieldset>
+                </form>
+           </div>
+		</div>
+        <div id="secondary" class="four columns end">
+            <aside id="sidebar">
+            <div id="portfolio-wrapper" class="bgrid-full s-bgrid-full">
+            <img data-ng-src="{{data.coverphoto}}" />
+            </div>
+            
+            </aside>
+        </div>
+
+	</div>
+</div>
+</div>

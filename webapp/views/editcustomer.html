@@ -1,0 +1,83 @@
+<div class="content-outer" data-ng-controller="CustomerEditController" data-ng-init="getcustomer()">
+    <div id="page-content" class="row page">
+        <div id="primary" class="eight columns">
+            <div id="contact-form">
+                <form name="form" novalidate>
+                    <fieldset>
+                        <legend>Update Customer Informtion</legend>
+                        <div>
+                            <label for="inputName">Name</label>
+                            <input type="text" size="50" id="inputName" name="inputName" ng-model="customer.Name" required />
+                        </div>
+
+                        <div>
+                            <label for="inputEmail">Email</label>
+                            <input type="email" size="50" id="inputEmail" name="inputEmail" ng-model="customer.Email" required />
+                        </div>
+                        <div>
+                            <label for="inputPhone">Phone</label>
+                            <input type="text" size="50" id="inputPhone" name="inputPhone" ng-model="customer.Phone" required />
+                        </div>
+                        
+                        <div>
+                            <label for="inputDesc">Description</label>
+                            <textarea rows="5" cols="50" id="inputDesc" name="inputDesc" ng-model="customer.Desc" required ></textarea>
+                        </div>
+
+                        <div >
+                                <button type="submit" class="btn btn-info" ng-disabled="form.$invalid" data-ng-click="savecustomer()">Save</button>
+                        </div>
+                    </fieldset>
+                </form>
+                
+                <form name="newlogform" novalidate>
+                    <fieldset>
+                        <legend>New Contact Record</legend>
+                        <div>
+                            <label for="inputType">Type</label>
+                            <input type="text" size="50" id="inputType" name="inputType" ng-model="data.OperationType" required />
+                        </div>
+                        
+                        <div>
+                            <label for="inputDetail">Detail</label>
+                            <textarea rows="3" cols="50" id="inputDetail" name="inputDetail" ng-model="data.OperationDetail" required ></textarea>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-info" ng-disabled="newlogform.$invalid" data-ng-click="addlog()">Add</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        
+        <div id="secondary" class="four columns end">
+        	<aside id="sidebar">
+        	<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full">
+        	<img ng-src="{{customer.CoverPhoto}}" />
+        	</div>
+        		<div class="widget widget_photostream">
+        			<h5>Uploaded Photos</h5>
+					<ul class="photostream cf">
+						<li ng-repeat="p in customer.Photos">
+							<a ng-href="{{p}}"><img ng-src="{{p}}" alt="{{p}}"></a>
+						</li>
+					</ul>
+        		</div>
+                <button type="button" class="btn" ng-click="jumptoupload()">Upload Photos</button>
+                
+                <div >
+            <ul>
+                <li ng-repeat="log in customer.Logs">
+                    <div><span ng-bind="log.OperationTime" /></div>
+                    <div><span ng-bind="log.OperationType" /></div>
+                    <div><span ng-bind="log.OperationDetail" /></div>
+                </li>
+            </ul>
+        </div>
+        	</aside>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,11 @@
+<div class="container content">
+    <div class="bs-docs-section" data-ng-controller="ProductsController" data-ng-init="find()">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-lg-4 " data-ng-repeat="product in products">
+                <a href="#!/product/{{product.NavName}}"><img width="100%" ng-src={{product.CoverPhoto}}></a>
+                <div class="cname"><span>{{product.CnName}}</span></div>
+                <div class="ename"><span>{{product.EnName}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>

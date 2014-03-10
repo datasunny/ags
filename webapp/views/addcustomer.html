@@ -1,0 +1,53 @@
+<div class="content-outer" data-ng-controller="CustomerAddController" data-ng-init="getNewCustomer()">
+	<div id="page-content" class="row page">
+        <div id="primary" class="eight columns">
+            <div id="contact-form">
+                <form name="form" novalidate>
+                    <fieldset>
+                        <legend>Add New Customer</legend>
+                        <div>
+                            <label for="inputName">Name</label>
+                            <input type="text" size="50" id="inputName" name="inputName" ng-model="data.Name" required />
+                        </div>
+
+                        <div>
+                            <label for="inputEmail">Email</label>
+                                <input type="email" size="50" id="inputEmail" name="inputEmail" ng-model="data.Email" required />
+                        </div>
+
+                        <div>
+                            <label for="inputPhone">Phone</label>
+                            <input type="text" size="50" id="inputPhone" name="inputPhone" ng-model="data.Phone" required />
+                        </div>
+
+                        <div>
+                            <label for="inputDesc">Description</label>
+                            <textarea rows="5" cols="50" id="inputDesc" name="inputDesc" ng-model="data.Desc" required ></textarea>
+                        </div>
+
+                        <div>
+                                <button type="submit" class="btn btn-info" ng-disabled="form.$invalid" data-ng-click="addcustomer()">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div id="secondary" class="four columns end">
+        	<aside id="sidebar">
+        	<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full">
+        	<img ng-src="{{data.CoverPhoto}}" />
+        	</div>
+        		<div class="widget widget_photostream">
+        			<h5>Uploaded Photos</h5>
+					<ul class="photostream cf">
+						<li ng-repeat="p in data.Photos">
+							<a ng-href="{{p}}"><img ng-src="{{p}}" alt="{{p}}"></a>
+						</li>
+					</ul>
+        		</div>
+                <button type="button" class="btn" ng-click="jumptoupload()">Upload Photos</button>
+        	</aside>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div data-ng-controller="UsersCtrl" data-ng-init="getProfile()">
+	<div id="page-title">
+		<div class="row">
+			<div class="twelve columns centered text-center">
+				<h1>My Profile</h1>
+			</div>
+		</div>
+	</div>
+	<div class="content-outer">
+		<div id="page-content" class="row page">
+			<div class="four columns">
+				<h3>Information</h2>
+				<ul>
+					<li><img alt="" ng-src="{{data.coverphoto}}"></li>
+					<li>Nickname: {{data.nickname}}</li>
+					<li>Phone: {{data.phone}}</li>
+				</ul>
+			</div>
+			<div class="four columns">
+				<h3>Registration Address</h3>
+				<ul>
+					<li>Name: {{regaddr.Name}}</li>
+					<li>Address: {{regaddr.Address}}</li>
+					<li>City: {{regaddr.City}}</li>
+					<li>Province: {{regaddr.Province}}</li>
+					<li>Postal: {{regaddr.Postal}}</li>
+					<li>Country: {{regaddr.Country}}</li>
+					<li>Phone: {{regaddr.Phone}}</li>
+				</ul>
+			</div>
+
+			<div class="four columns">
+				<h3>Primary Shipping Address</h3>
+				<ul>
+					<li>Name: {{shipaddr.Name}}</li>
+					<li>Address: {{shipaddr.Address}}</li>
+					<li>City: {{shipaddr.City}}</li>
+					<li>Province: {{shipaddr.Province}}</li>
+					<li>Postal: {{shipaddr.Postal}}</li>
+					<li>Country: {{shipaddr.Country}}</li>
+					<li>Phone: {{shipaddr.Phone}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

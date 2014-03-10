@@ -1,0 +1,56 @@
+<div class="content-outer" data-ng-controller="ArticleViewController" data-ng-init="getblog()">
+    <div id="page-content" class="row">
+    	<div id="primary" class="eight columns">
+    		<article class="post">
+    			<div class="entry-header cf">
+    				 <h1 data-ng-bind="article.Title"></h1>
+    				 <p class="post-meta">
+    				 	<time class="date" >{{article.CreateTime}}</time>
+    				 </p>
+    			</div>
+    			<div class="post-thumb">
+					<img data-ng-src="{{article.CoverPhoto}}" data-ng-title="{{article.Title}}"  data-ng-alt="{{article.Title}}">
+				</div>
+				<div class="post-content">
+					<div id="htmlcontentdiv"></div>
+				</div>
+    		</article>
+    	</div>
+		<div id="secondary" class="four columns end">
+			<aside id="sidebar">
+				<div class="row">
+					<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full"
+						data-ng-repeat="deal in deals">
+						<div class="columns portfolio-item">
+							<div class="item-wrap">
+								<a href="#!/deal/{{deal.NavName}}"> <img
+									alt="{{deal.EnName}}" data-ng-src="{{deal.CoverPhoto}}">
+									<div class="overlay"></div>
+									<div class="link-icon">
+										<i class="fa fa-link"></i>
+									</div>
+								</a>
+								<div class="portfolio-item-meta">
+									<h5>
+										<a href="#!/deal/{{deal.NavName}}">{{deal.EnName}}</a>
+									</h5>
+									<p><del>${{deal.Price + deal.Discount}}</del>   ${{deal.Price}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full">
+						<div class="columns portfolio-item">
+							<div class="item-wrap">
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-2004843599964911"
+     data-ad-slot="8808872551"></ins>
+</div></div></div>
+				</div>
+			</aside>
+		</div>
+    </div>
+</div>
+
+

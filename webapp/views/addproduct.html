@@ -1,0 +1,98 @@
+<div class="content-outer" data-ng-controller="ProductAddController" data-ng-init="getNewProduct()">
+    <div id="page-content" class="row page">
+    	<div id="primary" class="eight columns">
+    		<div id="contact-form">
+    			<form name="form" novalidate>
+                    <fieldset>
+                        <legend>Add New Product</legend>
+                        <div>
+                            <label for="inputNavName">Navigation Name</label>
+                            <input type="text" size="50" id="inputNavName" name="inputNavName" ng-model="data.NavName" required />
+                        </div>
+
+                        <div>
+                            <label for="inputEnName">Product Name</label>
+                            <input type="text" size="50" id="inputEnName" name="inputEnName" ng-model="data.EnName" required />
+                        </div>
+
+                        <div>
+                            <label for="inputCnName">中文名</label>
+                            <input type="text" size="50" id="inputCnName" name="inputCnName" ng-model="data.CnName" required />
+                        </div>
+                        
+                        <div>
+                            <label for="selectStatus">Status</label>
+                            <select id="selectStatus" data-ng-model="data.Status">
+                                <option value="0">Not For Sale</option>
+                                <option value="1">For Sale</option>
+                                <option value="2">On Sale</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="inputPrice">Price</label>
+                            <input type="text" size="50" id="inputPrice" name="inputPrice" ng-model="data.Price" required />
+                        </div>
+
+                        <div>
+                            <label for="inputDiscount">Discount</label>
+                            <input type="text" size="50" id="inputDiscount" name="inputDiscount" ng-model="data.Discount" required />
+                        </div>
+                        
+                        <div>
+                            <label for="inputIntro">Product Info</label>
+                            <textarea rows="15" cols="50" id="inputIntro" name="inputIntro" ng-model="data.Introduction" required ></textarea>
+                        </div>
+
+                        <div>
+                            <label for="inputSpec">Product Spec</label>
+                            <textarea rows="15" cols="50"  id="inputSpec" name="inputSpec" ng-model="data.Spec" required ></textarea>
+                        </div>
+
+
+                        <div>
+                            <label for="inputTaobaoUrl">Taobao</label>
+                            <input type="text" size="50" id="inputTaobaoUrl" name="inputTaobaoUrl" ng-model="data.taobaourl" />
+                        </div>
+                        <!--
+                        <div class="form-group">
+                            <label for="inputWechatUrl" class="col-xs-2 control-label">微信</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" id="inputWechatUrl" name="inputWechatUrl" ng-model="data.wechaturl" />
+                            </div>
+                        </div>
+                        -->
+                        <div>
+                            <label for="inputEbayUrl">Ebay </label>
+                            <input type="text" class="form-control" id="inputEbayUrl" name="inputEbayUrl" ng-model="data.ebayurl" />
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-info" ng-disabled="form.$invalid" data-ng-click="addproduct()">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+    		</div>
+    	</div>
+        
+        <div id="secondary" class="four columns end">
+        	<aside id="sidebar">
+        	<div id="portfolio-wrapper" class="bgrid-full s-bgrid-full">
+        	<img ng-src="{{data.CoverPhoto}}" />
+        	</div>
+        		<div class="widget widget_photostream">
+        			<h5>Uploaded Photos</h5>
+					<ul class="photostream cf">
+						<li ng-repeat="p in data.Photos">
+							<a ng-href="{{p}}"><img ng-src="{{p}}" alt="{{p}}"></a>
+						</li>
+					</ul>
+        		</div>
+        		<button type="button" class="btn btn-info btn-sm"  ng-click="jumptoupload()">Modify Product Photos</button>
+        	</aside>
+        </div>
+        
+    </div>
+</div>
+
+

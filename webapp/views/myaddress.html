@@ -1,0 +1,131 @@
+<div  data-ng-controller="UsersCtrl"
+	data-ng-init="getProfile()">
+
+    <div id="page-title">
+        <div class="row">
+            <div class="ten columns centered text-center">
+                <h1>
+                    Change Addresses<span>.</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="content-outer">
+	<div id="page-content" class="row page">
+		<div class="six columns">
+			<div id="contact-form">
+			<form name="form1" class="form-horizontal css-form" novalidate>
+				<fieldset>
+					<legend>Registration Address</legend>
+					<div>
+						<label for="inputName1">Name</label> <input type="text" size="30"
+							id="inputName1" name="inputName1" ng-model="regaddr.Name"
+							placeholder="" required />
+					</div>
+
+
+					<div>
+						<label for="inputAddress1">Address</label> <input type="text"
+							size="30" id="inputAddress1" name="inputAddress1"
+							ng-model="regaddr.Address" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputCity1">City</label> <input type="text" size="30"
+							id="inputCity1" name="inputCity1" ng-model="regaddr.City"
+							placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputProvince1">Province</label> <input type="text"
+							size="30" id="inputProvince1" name="inputProvince1"
+							ng-model="regaddr.Province" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputPostal1">Postal Code</label> <input type="text"
+							size="30" id="inputPostal1" name="inputPostal1"
+							ng-model="regaddr.Postal" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputCountry1">Country</label> <input type="text"
+							size="30" id="inputCountry1" name="inputCountry1"
+							ng-model="regaddr.Country" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputPhone1">Phone</label> <input type="text"
+							size="30" id="inputPhone1" name="inputPhone1"
+							ng-model="regaddr.Phone" placeholder="" required />
+					</div>
+
+
+					<div>
+						<button type="submit" class="btn btn-info"
+							ng-disabled="form1.$invalid" data-ng-click="updateRegAddress()">Change
+							Registration Address</button>
+					</div>
+				</fieldset>
+			</form>
+			</div>
+		</div>
+		<div class="six columns">
+		<div id="contact-form">
+			<form name="form2" class="form-horizontal css-form" novalidate>
+				<fieldset>
+					<legend>Primary Shipping Address</legend>
+
+					<div>
+						<label for="inputName2">Name</label> <input type="text" size="30"
+							id="inputName2" name="inputName2" ng-model="shipaddr.Name"
+							placeholder="" required />
+					</div>
+
+
+					<div>
+						<label for="inputAddress2">Address</label> <input type="text"
+							size="30" id="inputAddress2" name="inputAddress2"
+							ng-model="shipaddr.Address" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputCity2">City</label> <input type="text" size="30"
+							id="inputCity2" name="inputCity2" ng-model="shipaddr.City"
+							placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputProvince2">Province</label> <input type="text"
+							size="30" id="inputProvince2" name="inputProvince2"
+							ng-model="shipaddr.Province" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputPostal2">Postal Code</label> <input type="text"
+							size="30" id="inputPostal2" name="inputPostal2"
+							ng-model="shipaddr.Postal" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputCountry2">Country</label> <input type="text"
+							size="30" id="inputCountry2" name="inputCountry2"
+							ng-model="shipaddr.Country" placeholder="" required />
+					</div>
+
+					<div>
+						<label for="inputPhone2">Phone</label> <input type="text"
+							size="30" id="inputPhone2" name="inputPhone2"
+							ng-model="shipaddr.Phone" placeholder="" required />
+					</div>
+
+					<button type="submit" class="btn btn-info"
+						ng-disabled="form2.$invalid" data-ng-click="updateShipAddress()">Change
+						Shipping Address</button>
+				</fieldset>
+			</form>
+		</div>
+		</div>
+	</div>
+</div>
+</div>

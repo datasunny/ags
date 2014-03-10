@@ -1,0 +1,31 @@
+<div data-ng-controller="ReportsController"
+	data-ng-init="getNewCustomerChart(0)">
+	<div class="content-outer">
+		<div id="page-content">
+
+			<div class="row">
+				<div class="twelve columns">
+					<div>
+						<button type="button" data-ng-click="getNewCustomerChart(0)">Recent
+							7 Days</button>
+						<button type="button"  data-ng-click="getNewCustomerChart(1)">Recent
+							30 Days</button>
+						<button type="button" data-ng-click="getNewCustomerChart(2)">Recent
+							6 Months</button>
+						<button type="button" data-ng-click="getNewCustomerChart(3)">From
+							Beginning</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+
+					<div id="chart1" class="with-transitions">
+						<svg></svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

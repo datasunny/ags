@@ -1,0 +1,52 @@
+<div data-ng-controller="SignInRedirectController">
+	<div id="page-title">
+		<div class="row">
+			<div class="twelve columns centered text-center">
+				<h1>
+					Sign In<span>.</span>
+				</h1>
+			</div>
+		</div>
+	</div>
+	<div class="content-outer">
+		<div id="page-content" class="row page">
+			<div class="twelve columns">
+				<form name="form" novalidate>
+					<fieldset>
+						<legend>Sign In with your account</legend>
+						<p>
+							No account with us, free to ? <a href="#!/signup">Sign Up</a>
+							now.
+						</p>
+						<div >
+							<label for="inputEmail">Email</label> <input type="email" 
+								 id="inputEmail" name="inputEmail"
+								data-ng-model="data.email" placeholder="Email" required />
+						</div>
+
+						<div>
+							<label for="inputPassword">Password</label> <input
+								type="password" id="inputPassword"
+								name="inputPassword" data-ng-model="data.password"
+								placeholder="Password" required />
+						</div>
+
+						<div>
+							<p>
+								<a href="#!/recover">Forget your password?</a>
+							</p>
+						</div>
+
+
+						<div>
+							<button type="submit" class="btn btn-success"
+								data-ng-disabled="form.$invalid" data-ng-click="signin()">Sign
+								In</button>
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

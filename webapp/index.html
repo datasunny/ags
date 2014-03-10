@@ -1,0 +1,185 @@
+<!doctype html>
+<!--[if lt IE 8 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>featen . happy coding</title>
+<meta name="description" content="featen.com">
+<meta name="author" content="He Jian Jun, jason at featen.com">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/sparrow/css/default.css">
+<link rel="stylesheet" href="/sparrow/css/layout.css">
+<link rel="stylesheet" href="/sparrow/css/media-queries.css">
+<link rel="stylesheet" href="/css/nv.d3.css">
+<link rel="stylesheet" href="/sparrow/css/ags.css">
+ 
+<script type="text/javascript" src="/sparrow/js/modernizr.js"></script>
+<script type="text/javascript" src="/lib/angular-1.2.1.js"></script>
+<script type="text/javascript" src="/lib/angular-cookies-1.2.1.js"></script>
+<script type="text/javascript" src="/lib/angular-resource-1.2.1.js"></script>
+<script type="text/javascript" src="/lib/angular-route-1.2.1.js"></script>
+
+<link rel="shortcut icon" href="favicon.png">
+<style>
+.ng-cloak {
+	display: none;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="logo">
+					<a data-ng-href="#!/"><img alt="" src="/images/featen.png"></a>
+				</div>
+
+				<nav id="nav-wrap">
+					<a class="mobile-btn" href="#nav-wrap" target="_self" title="Show navigation">Show navigation</a>
+	            	<a class="mobile-btn" href="#" target="_self" title="Hide navigation">Hide navigation</a>
+					
+					<ul id="nav" class="nav" data-ng-controller="UsersCtrl" data-ng-init="init()">
+                        <li data-ng-show="global.isemployee"><span><a data-ng-href="#!/customers" >Customers</a></span>
+	                        <ul>
+	                        	<li><a data-ng-href="#!/addcustomer">Add Customer</a></li>
+							</ul>
+						</li>
+                        <li data-ng-show="global.isemployee"><span><a data-ng-href="#!/products">Products</a></span>
+                        	<ul>
+                        		<li><a data-ng-href="#!/addproduct">Add Product</a></li>
+                        	</ul>
+                        </li>
+                        <li data-ng-show="global.isemployee"><a data-ng-href="#!/enquires">Enquires</a></li>
+                        <li data-ng-show="global.isemployee"><a data-ng-href="#!/reports">Reports</a></li>
+                        <li data-ng-show="global.isemployee"><a data-ng-href="#!/writeblog">Write Blog</a></li>
+					
+						<li data-ng-show="global.authenticated"><span><a data-ng-href='#!/profile' >{{global.user.Email}}</a></span>
+							<ul>
+								<li><a data-ng-href="#!/myinfo">Update Information</a>
+								<li><a data-ng-href="#!/mypassword">Change Password</a>
+                                <li><a data-ng-href="#!/myaddress">Change Address</a>
+								<li><a data-ng-href="#!/myreviewboard">My Reviewboard</a>
+								<li><a data-ng-href="#!/" data-ng-click="signout()" >Sign Out</a></li>
+							</ul>
+						</li>
+						
+						<li data-ng-hide="global.authenticated"><a data-ng-href="#!/signin" >Sign In</a></li>
+						<li data-ng-hide="global.authenticated"><a data-ng-href="#!/signup">Sign Up</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	
+	<div data-ng-view></div>
+
+	<div class="alert-container alert-bottom-right" data-ng-controller="AlertsCtrl">
+		<div data-ng-repeat="alert in alerts" class="alert"
+			data-ng-class="{'alert-warning': alert.type == 'warning', 
+	                               'alert-success': alert.type == 'success', 
+	                               'alert-info': alert.type == 'info',
+	                               'alert-danger': alert.type == 'error'}">
+			<button type="button" class="close" data-dismiss="alert"
+				data-ng-click="remove($index)">&times;</button> 
+			<i data-ng-class="{'fa fa-exclamation-triangle': alert.type == 'warning', 
+	                                   'fa fa-thumbs-up': alert.type == 'success', 
+	                                   'fa fa-info': alert.type == 'info',
+	                                   'fa fa-bolt': alert.type == 'error'}"></i>
+			<strong data-ng-bind="alert.strong"></strong> <span data-ng-bind="alert.message"></span>
+		</div>
+	</div>
+
+	<footer>
+      <div class="row">
+         <div class="twelve columns">            
+            <ul class="footer-social">
+               <li><a target="_blank" href="https://www.facebook.com/he.j.jun"><i class="fa fa-facebook"></i></a></li>
+               <li><a target="_blank" href="https://twitter.com/featen_com"><i class="fa fa-twitter"></i></a></li>
+               <li><a target="_blank" href="https://plus.google.com/+HeJianjun"><i class="fa fa-google-plus"></i></a></li>
+               <li><a target="_blank" href="https://ca.linkedin.com/in/hejianjun/"><i class="fa fa-linkedin"></i></a></li>
+               <li><a target="_blank" href="https://github.com/featen"><i class="fa fa-github"></i></a></li>
+               <li><a target="_blank" href="http://www.weibo.com/featen"><i class="fa fa-weibo"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+               <li>Copyright &copy; 2014 Featen.    Template by <a href="http://www.styleshout.com">Styleshout</a></li>
+            </ul>
+         </div>
+         <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
+      </div>
+	</footer>
+	<!-- 
+	<script type="text/javascript" src="/lib/jquery-2.0.3.js"></script>
+	<script	src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/sparrow/js/jquery-1.10.2.min.js"><\/script>')</script>
+	<script type="text/javascript" src="/sparrow/js/jquery-migrate-1.2.1.min.js"></script>
+	
+	<!-- template js -->
+	<script src="/sparrow/js/jquery.flexslider.js"></script>
+	<script src="/sparrow/js/doubletaptogo.js"></script>
+	<script src="/sparrow/js/init.js"></script>
+   
+	<!-- jquery data table -->   
+	<script src="/lib/jquery.dataTables.js"></script>
+	<script src="/lib/jquery.dataTables.bootstrap.js"></script>
+	
+	<!-- base64 -->
+	<script src="/lib/base64.js"></script>
+
+	<!-- APP JS -->
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/filters.js"></script>
+	<script type="text/javascript" src="/js/directives.js"></script>
+	<script type="text/javascript" src="/js/config.js"></script>
+
+	<script type="text/javascript" src="/js/services/global.js"></script>
+	<script type="text/javascript" src="/js/services/alerts.js"></script>
+	<script type="text/javascript" src="/js/services/user.js"></script>
+	<script type="text/javascript" src="/js/services/article.js"></script>
+	<script type="text/javascript" src="/js/services/share.js"></script>
+	<script type="text/javascript" src="/js/services/product.js"></script>
+	<script type="text/javascript" src="/js/services/customer.js"></script>
+	<script type="text/javascript" src="/js/services/enquire.js"></script>
+	<script type="text/javascript" src="/js/services/report.js"></script>
+	<script type="text/javascript" src="/js/services/deal.js"></script>
+
+	<script type="text/javascript" src="/js/controllers/index.js"></script>
+	<script type="text/javascript" src="/js/controllers/alerts.js"></script>
+	<script type="text/javascript" src="/js/controllers/users.js"></script>
+	<script type="text/javascript" src="/js/controllers/article.js"></script>
+	<script type="text/javascript" src="/js/controllers/share.js"></script>
+	<script type="text/javascript" src="/js/controllers/product.js"></script>
+	<script type="text/javascript" src="/js/controllers/customer.js"></script>
+	<script type="text/javascript" src="/js/controllers/enquire.js"></script>
+	<script type="text/javascript" src="/js/controllers/report.js"></script>
+	<script type="text/javascript" src="/js/controllers/deal.js"></script>
+	<script type="text/javascript" src="/js/controllers/reviewboard.js"></script>
+
+
+	<script type="text/javascript" src="/js/init.js"></script>
+
+	<!-- Markdown  -->
+	<script defer type="text/javascript" src="/lib/marked.js"></script>
+
+	<!-- nvd3 -->
+	<script defer type="text/javascript" src="/lib/nvd3/d3.v3.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/nv.d3.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/tooltip.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/utils.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/legend.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/axis.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/scatter.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/line.js"></script>
+	<script defer type="text/javascript" src="/lib/nvd3/lineChart.js"></script>
+
+	<!-- google adsense -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</body>
+</html>

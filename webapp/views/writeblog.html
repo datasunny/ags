@@ -1,0 +1,84 @@
+<div class="content-outer" data-ng-controller="ArticleEditController"
+	data-ng-init="getEditingArticle()">
+	<div id="page-content" class="row page">
+		<div id="primary" class="eight columns">
+			<div id="contact-form">
+				<form name="form" novalidate>
+					<fieldset>
+						<legend>
+							<p>
+								<button type="button" class="btn btn-info" data-ng-click="preview()"
+									data-ng-show="editstate">Preview</button>
+
+								<button type="button" class="btn btn-info " data-ng-click="edit()"
+									data-ng-hide="editstate">Edit</button>
+
+								<button type="button" class="btn btn-info" data-ng-click="create()">Publish</button>
+
+								<button type="button" class="btn btn-info"
+									data-ng-click="jumptoupload()">Upload</button>
+							</p>
+						</legend>
+						<div data-ng-show="editstate">
+							<div>
+								<input type="text" size="50" id="inputTitle" name="inputTitle"
+									data-ng-model="data.title" placeholder="Title" required />
+							</div>
+							<div>
+								<input type="text" size="50" id="inputNavName"
+									name="inputNavName" data-ng-model="data.navname" placeholder="Name"
+									required />
+							</div>
+							<div>
+								<input type="text" size="50" id="inputCoverPhoto"
+									name="inputCoverPhoto" data-ng-model="data.coverphoto"
+									placeholder="Covor Photo" required />
+							</div>
+							<div>
+								<textarea rows="5" cols="50" id="inputIntro" name="inputIntro"
+									data-ng-model="data.intro" placeholder="Introduction" required></textarea>
+							</div>
+							<div>
+								<textarea rows="30" cols="50" id="inputContent"
+									name="inputContent" data-ng-model="data.content" required></textarea>
+							</div>
+						</div>
+
+						<div data-ng-hide="editstate">
+							<article class="post">
+								<div class="entry-header cf">
+									<h1 data-ng-bind="data.title"></h1>
+
+								</div>
+								<div class="post-thumb">
+									<img data-ng-src="{{data.coverphoto}}"
+										data-ng-title="{{data.title}}" data-ng-alt="{{data.title}}">
+								</div>
+								<div class="post-content">
+									<div id="htmlcontentdiv"></div>
+								</div>
+							</article>
+
+
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div id="secondary" class="four columns end">
+			<aside id="sidebar">
+				<div class="row">
+					<ul>
+						<li data-ng-repeat="photo in data.blogphotos"><img
+							data-ng-src="{{photo}}" style="max-height: 150px; width: 100%;" />
+							{{photo}}</li>
+					</ul>
+				</div>
+			</aside>
+		</div>
+	</div>
+</div>
+
+
+
+

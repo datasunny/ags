@@ -1,0 +1,61 @@
+<div data-ng-controller="ReviewboardController" data-ng-init="getReviewboardDetail()">
+	<div id="page-title">
+		<div class="row">
+			<div class="twelve columns centered text-center">
+				<h1>My Reviewboard<span>.</span></h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="content-outer">
+		<div id="page-content" class="row">
+		<div class="four columns">
+				<div id="contact-form">
+		
+				<form name="form" novalidate>
+				<fieldset>
+						<div>
+							<label for="inputSubject">Subject</label> 
+							<input type="text"  size="33"
+								 id="inputSubject" name="inputSubject"
+								data-ng-model="data.subject" required />
+						</div>
+
+						<div>
+							<label for="inputMessage">Message</label> 
+							<textarea cols="35" rows="10"
+								id="inputMessage"
+								name="inputMessage" data-ng-model="data.message"
+								 required ></textarea>
+						</div>
+
+						<div>
+							<button type="submit" class="btn"
+								data-ng-disabled="form.$invalid" data-ng-click="addEnquire()">Enquire Business Solution</button>
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+			</div>
+			<div class="eight columns end" >
+			<div data-ng-repeat="product in data.products">
+				<div class="four columns">
+					<a href="#!/deal/{{product.NavName}}"><img
+						class="img-responsive" data-ng-src="{{product.CoverPhoto}}"></img></a>
+				</div>
+				<div class="six columns">
+						<a href="#!/deal/{{product.NavName}}">{{product.Name}}</a>
+				</div>
+				<div class="two columns">
+					<span data-ng-bind="{{product.Price}}"></span>
+				</div>
+				<hr>
+			</div>
+			</div>
+			
+		</div>
+
+		
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container content">
+    <div class="bs-docs-section" data-ng-controller="DealsController" data-ng-init="findDeals()">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-lg-4 " data-ng-repeat="deal in deals">
+                <a href="#!/deal/{{deal.NavName}}"><img width="100%" class="img-responsive" ng-src={{deal.CoverPhoto}}></a>
+                <div class="details">
+                    <div class="cname"><span>{{deal.CnName}}</span></div>
+                    <div class="ename"><span>{{deal.EnName}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

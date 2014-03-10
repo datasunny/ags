@@ -1,0 +1,65 @@
+<div data-ng-controller="EnquireEditController"
+	data-ng-init="get()">
+		<div class="content-outer">
+		<div id="page-content" class="row">
+		<div id="primary" class="four columns">
+		<div id="contact-form">
+				<form name="form" novalidate>
+				<fieldset>						
+						<div>
+							<h4>{{data.Subject}}</h4>
+						</div>
+
+						<div>
+							<p>{{data.Message}}</p>
+						</div>
+
+						<div>
+							<label for="inputStatus">Status</label>
+							<select id="inputStatus" data-ng-model="data.Status">
+								<option value="0">New</option>
+								<option value="1">Unreachable</option>
+								<option value="2">Completed</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="inputMessage">Followup</label> 
+							<textarea cols="35" rows="10"
+								id="inputFollowup"
+								name="inputFollowup" data-ng-model="data.Followup"
+								 required ></textarea>
+						</div>
+
+						<div>
+							<button type="submit" class="btn"
+								data-ng-disabled="form.$invalid" data-ng-click="addFollowup()">Submit Followup</button>
+						</div>
+
+					</fieldset>
+				</form>
+				</div>
+			</div>
+			<div id="secondary" class="eight columns end" >
+			<div data-ng-repeat="product in data.Products">
+				<div class="four columns">
+					<a href="#!/deal/{{product.NavName}}"><img
+						class="img-responsive" data-ng-src="{{product.CoverPhoto}}"></img></a>
+				</div>
+				<div class="six columns">
+						<a href="#!/deal/{{product.NavName}}">{{product.Name}}</a>
+				</div>
+				<div class="two columns">
+					<span data-ng-bind="{{product.Price}}"></span>
+				</div>
+				<hr>
+			</div>
+			</div>
+			
+		</div>
+
+		
+	</div>
+	</div>
+
+

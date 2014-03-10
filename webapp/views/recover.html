@@ -1,0 +1,29 @@
+<div ng-controller="RecoverController">
+	<div id="page-title">
+		<div class="row">
+			<div class="ten columns centered text-center">
+				<h1>
+					Recover Your Password<span>.</span>
+				</h1>
+			</div>
+		</div>
+	</div>
+	<div class="content-outer">
+		<div id="page-content" class="row">
+			<div class="twelve columns">
+				<form name="form" novalidate>
+					<fieldset>
+						<div>
+							<label for="inputEmail">Input Your Email</label> <input type="email"
+								 id="inputEmail" name="inputEmail"
+								ng-model="data.email" placeholder="Email" required />
+						</div>
+						<button type="submit" class="btn btn-info"
+							ng-disabled="form.$invalid" ng-click="sendRecoverMail()">Send
+							Recover Email To You</button>
+
+					</fieldset>
+				</form>
+		</div></div>
+	</div>
+</div>

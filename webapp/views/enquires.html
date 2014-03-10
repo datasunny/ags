@@ -1,0 +1,68 @@
+<div data-ng-controller="EnquiresController" ng-init="search()">
+	<div class="content-outer">
+		<div class="row page">
+			<div class="twelve columns">
+				<aside id="sidebar">
+					<div class="widget widget_search">
+						<form>
+							<input class="text-search" type="text" data-ng-model="searchtext"
+								onfocus="if (this.value == 'Search enquire here...') { this.value = ''; }"
+								onblur="if(this.value == '') { this.value = 'Search enquire here...'; }"
+								value="Search enquire here..."> 
+							<input type="submit"
+								class="submit-search" value="" data-ng-click="search()">
+						</form>
+					</div>
+				</aside>
+			</div>
+		</div>
+
+		<div id="page-content">
+			<div class="row">
+				<div class="twelve columns">
+					<div data-ng-repeat="e in enquires">
+						<div class="two columns">
+							<span>{{getStatusName(e.Status)}}</span>
+						</div>
+						<div class="two columns">
+							<a href="#!/customer/{{e.CustomerId}}">{{e.CustomerName}}</a>
+						</div>
+						<div class="two columns">
+							<a href="#!/enquire/{{e.Id}}">{{e.Subject}}</a>
+						</div>
+						<div class="three columns">
+							<span>{{e.Message}}</span>
+						</div>
+						<div class="three columns">
+							<span>{{e.Followup}}</span>
+						</div>						
+						
+						<hr>
+					</div>
+					<nav class="col full pagination">
+						<ul>
+							<li><button data-ng-click="setpage(1)"
+									class="page-numbers prev">First</button></li>
+							<li data-ng-show="currPage - 1 >= 1"><button
+									data-ng-click="setpage(currPage-1)" class="page-numbers prev">Prev</button></li>
+							<li data-ng-show="currPage - 2 >= 1"><button
+									data-ng-click="setpage(currPage-2)" class="page-numbers">{{currPage-2}}</button></li>
+							<li data-ng-show="currPage - 1 >= 1"><button
+									data-ng-click="setpage(currPage-1)" class="page-numbers">{{currPage-1}}</button></li>
+							<li><span class="page-numbers current">{{currPage}}</span></li>
+							<li data-ng-hide="totalPageNumber - currPage < 1"><button
+									data-ng-click="setpage(currPage+1)" class="page-numbers">{{currPage+1}}</button></li>
+							<li data-ng-hide="totalPageNumber - currPage < 2"><button
+									data-ng-click="setpage(currPage+2)" class="page-numbers">{{currPage+2}}</button></li>
+							<li data-ng-hide="totalPageNumber - currPage < 1"><button
+									data-ng-click="setpage(currPage+1)" class="page-numbers next">Next</button></li>
+							<li><button data-ng-click="setpage(totalPageNumber)"
+									class="page-numbers next">Last</button></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
